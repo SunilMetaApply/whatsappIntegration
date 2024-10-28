@@ -1,34 +1,35 @@
+import React from 'react';
 
-// interface WhatsAppButtonInterface {
-//   phoneNumber: number;
-//   message?: string;
-// }
+interface WhatsAppButtonInterface {
+  phoneNumber: number;
+  message?: string;
+}
 
-export default function Home() {
-  const phoneNumber = 917428697331;
-  const message = "I need assistance";
+const Home: React.FC = () => {
+  const phoneNumber: number = 917428697331;
+  const message: string = "I need assistance, please help me";
 
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+  const whatsappLink: string = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <>
-      <main>
-          <a 
-          href={whatsappLink} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          style={{
-            display: 'inline-block',
-            padding: '10px 20px',
-            backgroundColor: '#25D366',
-            color: '#fff',
-            borderRadius: '5px',
-            textDecoration: 'none',
-          }}
-        >
-          Chat with us on WhatsApp
-        </a>
-      </main>
-    </>
+    <main>
+      <a 
+        href={whatsappLink} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        style={{
+          display: 'inline-block',
+          padding: '10px 20px',
+          backgroundColor: '#25D366',
+          color: '#fff',
+          borderRadius: '5px',
+          textDecoration: 'none',
+        }}
+      >
+        Chat with us on WhatsApp
+      </a>
+    </main>
   );
-}
+};
+
+export default Home;
